@@ -168,8 +168,9 @@ function svg_tray:_init()
   self.pathcnt = 0
   -- set new dimension for SVG
   local root = self.svg:find("svg")
-  root.width = tray_config.w
-  root.height = tray_config.h
+  root.width = tray_config.w .."mm"
+  root.height = tray_config.h .."mm"
+  self.g['transform'] = "scale(3.543307,3.543307)"
 end
 
 function svg_tray:rect_filled(x1, y1, x2, y2)
@@ -179,7 +180,8 @@ end
 -- this generates a single path of 4 consecutive lines
 function svg_tray:rect_outline(x1, y1, x2, y2)
 	table.insert(self.g, {[0]='path', 
-		d=string.format("m %.1f,%.1f %.1f,0 0,%.1f, %.1f,0 0,%.1f z",x1,y1,x2-x1,y2-y1,x1-x2,y1-y2),
+		d=string.format("m %.1f,%.1f %.1f,0 0,%.1f, %.1f,0 0,%.1f z",
+			x1,y1,x2-x1,y2-y1,x1-x2,y1-y2), 
 		style=self.linestyle,
 		id="path_"..self.pathcnt
 		})
