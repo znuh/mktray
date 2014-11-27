@@ -195,10 +195,12 @@ end
 
 -- this inflates all packages by the expand value given in the tray config
 -- call only once
+-- this inflates all packages by the expand value given in the tray config
+-- call only once
 function expand_packages()
-	for i=1,#packages do
-		packages[i][1] = packages[i][1] + tray_config.expand
-		packages[i][2] = packages[i][2] + tray_config.expand
+	for k,v in pairs(packages) do
+		v[1] = v[1] + tray_config.expand
+		v[2] = v[2] + tray_config.expand
 	end
 end
 
