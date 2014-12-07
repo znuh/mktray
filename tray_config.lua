@@ -1,7 +1,7 @@
 
 -- all units in mm
 tray_config = {
-	w = 315/2,
+	w = 315,
 	h = 135,
 	-- fill currently only supported for eagle BRDs
 	mode = 'outline', -- outline or fill
